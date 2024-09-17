@@ -1,5 +1,5 @@
 #!/bin/bash
-OTA=https://g2slave-us-east-01.tclcom.com/a17514a9c29dfaf623fbdde097915c876c94238d/83/781583
+OTA=https://github.com/user-attachments/files/17013799/boot_kefs.zip
 MAGISK=https://github.com/topjohnwu/Magisk/releases/download/v27.0/Magisk-v27.0.apk
 
 KEEPVERITY=true
@@ -25,7 +25,7 @@ cd ~/flip2
 wget -nv -O ota.zip "$OTA"
 unzip -q ota.zip
 mkdir -p ~/flip2/ota && cd $_
-magiskboot unpack ../boot.img
+magiskboot unpack ../boot_kefs.img
 mkdir -p ~/flip2/ota/ramdisk && cd $_
 magiskboot cpio ../ramdisk.cpio extract
 
