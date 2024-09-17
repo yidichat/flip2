@@ -47,7 +47,7 @@ magiskboot compress=xz ~/flip2/magisk/lib/armeabi-v7a/libmagisk32.so ~/flip2/neu
 magiskboot compress=xz ~/flip2/magisk/assets/stub.apk ~/flip2/neutron/ramdisk/overlay.d/sbin/stub.xz
 magiskboot compress=xz ~/flip2/neutron/ramdisk/init ~/flip2/neutron/ramdisk/.backup/init.xz
 cp ~/flip2/magisk/lib/armeabi-v7a/libmagiskinit.so ~/flip2/neutron/ramdisk/init
-SHA1=$(magiskboot sha1 ~/flip2/boot.img)
+SHA1=$(magiskboot sha1 ~/flip2/boot_kefs.img)
 
 cat >~/flip2/neutron/ramdisk/.backup/.magisk <<!
 KEEPVERITY=$KEEPVERITY
@@ -81,12 +81,12 @@ magiskboot cpio ramdisk.cpio \
 
 magiskboot cpio ramdisk.cpio 'ls / -r'
 
-magiskboot repack ~/flip2/boot.img
+magiskboot repack ~/flip2/boot_kefs.img
 mv ~/flip2/neutron/new-boot.img "$projdir/neutron.img"
 
 
 KEEPVERITY=false magiskboot cpio ramdisk.cpio patch
-magiskboot repack ~/flip2/boot.img
+magiskboot repack ~/flip2/boot_kefs.img
 mv ~/flip2/neutron/new-boot.img "$projdir/neutron-noavb.img"
 
 cd "$projdir"
