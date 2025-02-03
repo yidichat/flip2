@@ -141,10 +141,10 @@ int map_code(struct dev_st *dev, struct input_event *ev) {
         ev->type = EV_REL; ev->code = REL_X; ev->value = -mousespeed; return -2;
       case 34:
         ev->type = EV_REL; ev->code = REL_X; ev->value =  mousespeed; return -2;
-      case 1:
+      case 18:
         if (slowdown++ % 5) return 0;
         else ev->type = EV_REL; ev->code = REL_WHEEL; ev->value =  1; return -2;
-      case 0:
+      case 16:
         if (slowdown++ % 5) return 0;
         else ev->type = EV_REL; ev->code = REL_WHEEL; ev->value = -1; return -2;
 /*      case 43: case 26:
