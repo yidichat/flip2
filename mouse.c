@@ -17,7 +17,7 @@
 
 /* ew globals */
 int mousemode = 0;
-int mousespeed = 4;
+int mousespeed = 6;
 struct libevdev *virtmouse_dev;
 struct libevdev_uinput *virtmouse_uidev;
 
@@ -143,10 +143,10 @@ int map_code(struct dev_st *dev, struct input_event *ev) {
         ev->type = EV_REL; ev->code = REL_X; ev->value =  mousespeed; return -2;
       case 18:
         if (slowdown++ % 5) return 0;
-        else ev->type = EV_REL; ev->code = REL_WHEEL; ev->value =  1; return -2;
+        else ev->type = EV_REL; ev->code = REL_WHEEL; ev->value =  1; return 0;
       case 16:
         if (slowdown++ % 5) return 0;
-        else ev->type = EV_REL; ev->code = REL_WHEEL; ev->value = -1; return -2;
+        else ev->type = EV_REL; ev->code = REL_WHEEL; ev->value = -1; return 0;
 /*      case 43: case 26:
         ev->type = EV_KEY; ev->code = BTN_LEFT;  ev->value = 1; return -2;
       case 25:
